@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "threat-classifier"
+version = "0.1.0"
+description = "SOC triage inference pipeline — classifies signals as threat or benign"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "LeightonSec" }]
+keywords = ["security", "soc", "ml", "classification", "triage"]
+dependencies = [
+    "typer>=0.12.0",
+]
+
+[project.scripts]
+threat-classifier = "cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["threat_classifier*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=threat_classifier --cov-report=term-missing"
+
+[tool.coverage.run]
+omit = ["tests/*", "cli.py"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "N", "UP"]
+ignore = ["E501"]
