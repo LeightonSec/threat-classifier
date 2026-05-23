@@ -121,7 +121,7 @@ Phase 2 (fine-tuned DistilBERT inference) is blocked until all of the following 
 
 | Condition | Status |
 |---|---|
-| `honeypot.db` purge mechanism implemented and verified | ☐ Pre-condition from Gate 3 |
+| `honeypot.db` purge mechanism implemented and verified | ✅ Implemented — llm-honeypot db.py purge_old_attacks(), 108/108 tests |
 | Training dataset assembled from synthetic sources only | ☐ This gate |
 | Fine-tuned model weights stored outside public repo, `MODEL_PATH` wired | ☐ This gate |
 | TC → Anthropic API payload confirmed at PR review | ☐ This gate (PR review checkpoint) |
@@ -144,7 +144,7 @@ Phase 2 must not begin with:
 | TC → Anthropic API payload constraint documented (label + score only) | ✅ |
 | PR reviewer checklist items defined for Anthropic API call | ✅ |
 | Phase 2 entry conditions enumerated | ✅ |
-| `honeypot.db` purge mechanism implemented and verified | ☐ Gate 3 carry-forward |
+| `honeypot.db` purge mechanism implemented and verified | ✅ Implemented — llm-honeypot db.py purge_old_attacks(), 108/108 tests |
 | Training dataset assembled from synthetic sources | ☐ Phase 2 pre-condition |
 | Model weights stored outside public repo, `MODEL_PATH` wired | ☐ Phase 2 pre-condition |
 | TC → Anthropic API payload confirmed at PR review | ☐ Phase 2 PR checkpoint |
