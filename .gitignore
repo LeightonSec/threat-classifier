@@ -1,0 +1,30 @@
+# Model weights — never commit to public repo (Gate 4)
+models/
+*.bin
+*.safetensors
+*.pt
+*.pth
+tokenizer.json
+tokenizer_config.json
+vocab.txt
+special_tokens_map.json
+config.json
+
+# Training artefacts
+checkpoints/
+runs/
+
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Test / coverage
+.coverage
+.pytest_cache/
+htmlcov/

@@ -146,6 +146,6 @@ Phase 2 must not begin with:
 | Phase 2 entry conditions enumerated | ✅ |
 | `honeypot.db` purge mechanism implemented and verified | ✅ Implemented — llm-honeypot db.py purge_old_attacks(), 108/108 tests |
 | Training dataset assembled from synthetic sources | ☐ Phase 2 pre-condition |
-| Model weights stored outside public repo, `MODEL_PATH` wired | ☐ Phase 2 pre-condition |
-| TC → Anthropic API payload confirmed at PR review | ☐ Phase 2 PR checkpoint |
+| Model weights stored outside public repo, `MODEL_PATH` wired | ✅ Implemented — `inference.py` `_model_path()` raises `KeyError` if unset; `.gitignore` covers `*.bin`, `*.safetensors`, `*.pt`, `models/`, `checkpoints/` |
+| TC → Anthropic API payload confirmed at PR review | ✅ Confirmed — `_predict()` returns `tuple[str, float]`, `classify_text()` returns `ClassificationResult` only, no model internals cross boundary |
 | Gate 4 doc merged to threat-classifier repo | ☐ Pending |
