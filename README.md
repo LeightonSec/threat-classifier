@@ -71,7 +71,9 @@ Trust boundary mapping and adversarial ML assessment were completed before any i
 
 **Phase 1 — complete.** Inference pipeline wired with a keyword-heuristic stub classifier. All normalisation and thresholding logic is in place and tested. 31 tests, 100% coverage.
 
-**Phase 2 — blocked on Gate 4.** The stub in `inference.py` is replaced by a fine-tuned DistilBERT model trained on security labels. Phase 2 is blocked on two Gate 4 pre-conditions: the llm-redteam payload decision (whether real attack payloads can be used as training data) and confirmation that the TC → Anthropic API payload contains classifier output only.
+**Phase 2 — complete.** DistilBERT fine-tuned on 512 synthetic payloads from llm-redteam (256 threat, 256 benign). Sub-category 2 false positive rate: 0.0% on 128 security-adjacent benign samples (`security_education`, `security_research`, `security_analysis`, `security_defensive`), against a 5% target.
+
+**Caveat:** The 0.0% FP result is a synthetic benchmark. Training and evaluation data come from the same templated generator — the model has not been tested against live input. The production validation is live traffic from llm-honeypot: real attacker strings and real legitimate security questions from actual users. That test has not been run.
 
 ## Security notes
 
