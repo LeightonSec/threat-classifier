@@ -31,8 +31,8 @@ def _load_components() -> tuple:
         ) from exc
 
     path = _model_path()
-    tokenizer = DistilBertTokenizerFast.from_pretrained(str(path))
-    model = DistilBertForSequenceClassification.from_pretrained(str(path))
+    tokenizer = DistilBertTokenizerFast.from_pretrained(str(path))  # gate: ignore — local MODEL_PATH, not HuggingFace hub; revision= not applicable for local loads
+    model = DistilBertForSequenceClassification.from_pretrained(str(path))  # gate: ignore — local MODEL_PATH, not HuggingFace hub; revision= not applicable for local loads
     model.eval()
     return tokenizer, model
 

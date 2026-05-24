@@ -8,11 +8,11 @@ Usage:
 Exit code 1 if FP rate >= 5%.
 """
 import argparse
-import json
 import sys
 from pathlib import Path
 
 from threat_classifier.inference import classify_text
+from train import _load_and_validate
 
 SC2_VARIANTS = {
     "security_education",
@@ -27,11 +27,7 @@ def main() -> None:
     parser.add_argument("--data", required=True, type=Path)
     args = parser.parse_args()
 
-    records = [
-        json.loads(line)
-        for line in args.data.read_text(encoding="utf-8").splitlines()
-        if line.strip()
-    ]
+    records = _load_and_validate(args.data)
 
     sc2 = [
         r for r in records
